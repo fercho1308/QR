@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QR – EkoHomeARQ</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary:    #030505;
+      --secondary:  #010202;
+      --bg:         #ffffff;
+      --card-bg:    #F9FAFB;
+      --text:       #212121;
+      --radius:     8px;
+      --transition: 0.3s;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primary);
+      color: #00d854;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img { height: 60px; margin-bottom: 0.5rem; }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Estilos base de tarjeta */
+    .card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      min-height: 200px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      color: #faf9f9; /* texto blanco sobre la imagen */
+      align-items: center;
+      
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      transition: background var(--transition);
+    }
+    .card:hover::before {
+      background: rgba(0,0,0,0.2);
+    }
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .card a {
+      margin-top: auto;
+      align-self: center;
+      padding: 0.5rem 1rem;
+      background: var(--secondary);
+      color: #00d854;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 700;
+      transition: background var(--transition);
+      z-index: 1;
+    }
+    .card a:hover {
+      background: var(--primary);
+    }
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+      padding: 1.5rem;
+      aspect-ratio: 4 / 3;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: auto;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background var(--transition);
+      align-self: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+      padding: 1.5rem;
+      aspect-ratio: 4/3;
+      transition: transform var(--transition), box-shadow var(--transition);
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.rem; }
+      .card { padding: 1rem; min-height: 180px; }
+      .card h2 { font-size: 1.1rem; }
+      .card p { font-size: 0.8rem; }
+      .card a { padding: 0.4rem 0.8rem; font-size: 0.85rem;}    
+    }
+    .card a {
+      margin-top: auto;
+      align-self: center;
+    }
+    /* Fondos específicos */
+    .card--tienda      { background: url('OIP.webp') center/cover no-repeat; }
+    .card--sucursal    { background: url('ideal-displaying-map-pins-map-pin-icon-inside-blue-circle-vectors-239205930.webp') center/cover no-repeat; }
+    .card--contacto    { background: url('descarga.webp') center/cover no-repeat; }
+    .card--calculadora { background: url('OIP%20(1).jpeg') center/cover no-repeat; }
+    .card--whatsapp    { background: url('OIP.jpeg') center/cover no-repeat; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>   
+
+  <header>
+    <img src="logo-939778300-1735075467-0db59320d7049293983640dfdc56e11e1735075467.png" alt="EkoHomeARQ" />
+    <h1>¡BIENVENIDO!</h1>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="card card--tienda">
+        <h2>Mi Tienda Nube</h2>
+        <p>Compra nuestros productos directamente desde tu móvil.</p>
+        <a href="https://ekohomearq.mitiendanube.com/" target="_blank">Visitar</a>
+      </div>
+
+      <div class="card card--sucursal">
+        <h2>Nuestras Sucursales</h2>
+        <p>Encuentra la más cercana a ti.</p>
+        <a href="https://www.google.com/maps/place/EKO+HOME+ARQ/@17.3334806,-98.013142,17z/data=!3m1!4b1!4m6!3m5!1s0x85c8913a4baaf947:0xa9a65d629c1b65a4!8m2!3d17.3334755!4d-98.0105671!16s%2Fg%2F11wx9brdm2?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Oaxaca</a><br />
+        <a href="https://www.google.com/maps/place/19%C2%B002'58.4%22N+98%C2%B016'03.6%22W/@19.049564,-98.267677,17z/data=!3m1!4b1!4m4!3m3!8m2!3d19.049564!4d-98.267677?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Puebla</a>
+      </div>
+
+      <div class="card card--contacto">
+        <h2>Contáctanos</h2>
+        <p>Escríbenos o llámanos al instante.</p>
+        <a href="tel:+5219531106194">953-110-6194</a><br />
+        <a href="tel:+522224289495">222-428-9495</a><br />
+        <a href="tel:+527571358830">757-135-8830</a>
+      </div>
+
+      <div class="card card--calculadora">
+        <h2>Calculadora</h2>
+        <p>Realiza tus cálculos sin salir de la pagina.</p>
+        <a href="https://fercho1308.github.io/calculadora/" target="_blank">Abrir</a>
+      </div>
+
+      <div class="card card--whatsapp">
+        <h2>WhatsApp</h2>
+        <p>Visita nuestro canal.</p>
+        <a href="https://www.whatsapp.com/channel/0029Vb020FqD38CTPq8HHm0U" target="_blank"
+          >Abrir</a
+        >
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 EKO HOME ARQ. Todos los derechos reservados.
+  </footer>
+
+  <!-- Tracking en tiempo real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</body>
+</html>
+
